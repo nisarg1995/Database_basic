@@ -1,0 +1,1 @@
+WITH ACTOR_LIST as (select p1.pid as pid1, m1.rel_year as year from person p1,movie m1, actor_role ar1 where p1.pid=ar1.pid and ar1.mid=m1.mid),ACTOR_EXP as (select pid1, min(year), max(year), max(year)-min(year) as diff from ACTOR_LIST group by pid1) select pid1, person.name from ACTOR_EXP, person where person.pid = pid1 and diff= (select max(diff) from ACTOR_EXP);

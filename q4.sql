@@ -1,0 +1,1 @@
+WITH DATA as (select m1.rel_year as year, count(distinct m2.mid) as cnt1 from movie m1 Inner Join movie m2 on m2.rel_year >= m1.rel_year and m2.rel_year < m1.rel_year + 10 group by m1.rel_year),FINAL_DATA as (select max(cnt1) as max_cnt from DATA)SELECT d.year from FINAL_DATA f, DATA d where d.cnt1=f.max_cnt and d.year!=2009;

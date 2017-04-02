@@ -1,0 +1,1 @@
+WITH cast_cnt as (select mid, count(distinct pid) as pid_cnt from actor_role group by mid), max_cast_cnt as (select max(pid_cnt) as max_pid_cnt from cast_cnt) select m.name, pid_cnt from cast_cnt, max_cast_cnt, movie m where cast_cnt.pid_cnt = max_cast_cnt.max_pid_cnt and m.mid=cast_cnt.mid;

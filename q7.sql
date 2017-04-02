@@ -1,0 +1,1 @@
+WITH avg_rating as (select r.mid as mid1 , avg(r.rating) as avgr from review r group by r.mid) select m.mid, m.name, m.rel_year, avr.avgr from movie m INNER JOIN avg_rating avr on avr.mid1=m.mid and m.rel_year>=2005 and m.rel_year<=2016 order by m.rel_year,m.name;

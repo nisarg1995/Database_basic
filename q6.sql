@@ -1,0 +1,1 @@
+With actor as (select m.mid as mid1, pid, role from actor_role ar, movie m where m.mid=ar.mid and m.rel_year=2010), actor_cnt as (select mid1, pid, count(role) as cnt from actor group by (mid1,pid) having count(role)>=5) select p.name, m.name, ar.mid1, ar.cnt from person p, movie m, actor_cnt ar where p.pid=ar.pid and mid1=m.mid;

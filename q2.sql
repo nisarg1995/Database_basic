@@ -1,0 +1,1 @@
+select m.mid,m.name,m.rel_year,r.rating,r.votes from movie m,review r where r.mid=m.mid and r.rating=10 ORDER BY m.mid DESC;
