@@ -1,3 +1,0 @@
-- design/modify your db files.
-- parse dataset insert into Db schema. 
-- 
